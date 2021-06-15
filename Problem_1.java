@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
 
-class Problem_1
+public class Problem_1
 {
     public static boolean Solve(int A[],int k){
         HashSet<Integer> h = new HashSet<Integer>();
