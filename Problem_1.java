@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.HashSet;
+import java.util.Scanner;
 
 class Problem_1
 {
@@ -18,8 +19,21 @@ class Problem_1
         return false;
     }
 	public static void main(String[] args) {
+		/*
 		int A[] = {10, 15, 3, 7};
-		int k = 17;
+		int k = 17;   */
+		///////////////////
+		Scanner scnr = new Scanner(System.in);
+		System.out.println("Enter the size of input array");
+		int size = scnr.nextInt();
+		int[] A = new int[size];
+		System.out.println("Enter the input array");
+		for(int i = 0;i<size;i++){
+			A[i] = scnr.nextInt();
+		}
+		System.out.println("Enter the target sum");
+		int k = scnr.nextInt();
+		///////////////////////
 		System.out.println(Solve(A,k));
 	}
 }
