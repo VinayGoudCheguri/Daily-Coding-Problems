@@ -14,7 +14,7 @@ Node* XOR (Node *a, Node *b)
     return reinterpret_cast<Node *>((reinterpret_cast<uintptr_t>(a))^(reinterpret_cast<uintptr_t>(b)));
 }
 
-void insert(Node **head_ref, int data)
+void add(Node **head_ref, int data)
 {
     //new node to be inserted is created and data is added
     Node *newnode = new Node();
@@ -29,6 +29,22 @@ void insert(Node **head_ref, int data)
     // newnode becomes the new head
     *head_ref = newnode;
 }
+// get function
+Node* get(int index,Node **head)
+  {
+    Node *curr = *head;  
+    Node *prev = NULL;  
+    Node *next = NULL;  
+
+    for(int i = 0; i < index; i++) 
+    {  
+        next = XOR(prev, curr->npx);  
+  
+        prev = curr;  
+        curr = next;  
+    }  
+    return curr;
+  }
 
 // prints the numbers
 void printList (Node **head)
@@ -53,11 +69,12 @@ void printList (Node **head)
 int main ()
 {
     Node *head = NULL;
-    insert(&head, 1);
-    insert(&head, 2);
-    insert(&head, 3);
-    insert(&head, 4);
-    insert(&head, 5);
+    add(&head, 1);
+    add(&head, 2);
+    add(&head, 3);
+    add(&head, 4);
+    add(&head, 5);
     printList (&head);
+    Node *n = get(1,&head);
     return 0;
 }
